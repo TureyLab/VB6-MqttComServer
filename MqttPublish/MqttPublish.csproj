@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net5.0</TargetFramework>
+		<Platforms>AnyCPU;x86</Platforms>
+		<RootNamespace>MqttPublisher</RootNamespace>
+		<Nullable>annotations</Nullable>
+		<EnableComHosting>true</EnableComHosting>
+		<NETCoreSdkRuntimeIdentifier>win-x86</NETCoreSdkRuntimeIdentifier>
+
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<ComHostTypeLibrary Include="MqttPublish.tlb" Id="1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="MQTTnet" Version="3.1.2" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Update="MqttPublish.tlb">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </None>
+	</ItemGroup>
+
+</Project>

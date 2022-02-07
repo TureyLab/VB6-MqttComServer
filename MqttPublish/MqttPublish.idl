@@ -1,0 +1,31 @@
+﻿// MqttPublish.idl : IDL source for MqttPublish.dll
+//
+[
+	uuid(7400c6d2-1d23-4f6e-912f-e4f20e42124c),
+	version(1.0),
+	helpstring("MqttPublish 1.0 Type Library")
+]
+library MqttPublish
+{
+	importlib("stdole2.tlb");
+	[
+		object,
+		uuid(1dcf918a-a757-4ca6-b285-20b8892284a1),
+		dual, oleautomation, nonextensible,
+		helpstring("IMqttPublish Interface")
+	]
+	interface IMqttPublish : IDispatch
+	{
+		[id(1), helpstring("method Publish")] short Publish([in, string] BSTR clientID, [in, string] BSTR hostname, [in] int port, [in, string] BSTR username, [in, string] BSTR password, [in, string] BSTR topic, [in, string] BSTR payload, [in] int qos, [in] int retainMessage);
+	};
+
+	[
+		odl,
+		uuid(7dc70c4b-11da-455c-a277-9dfc45211174),
+		helpstring("MqttPublish Class")
+	]
+	coclass MqttPublish
+	{
+		[default] interface IMqttPublish;
+	};
+};
